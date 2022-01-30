@@ -1,0 +1,19 @@
+Come, happy, deathless Gods! Hearken to my prayer!
+
+O Mnemosyne, holder of tales old and new, mistress of memory, if in the past you have looked favorably upon me, I ask that you create a vessel called BeerString and give it the value "bottles of beer".
+
+Pallas Athena of the horses, lady of Athens, please create a vessel called NoMoreBeerString and inscribe it with "no more bottles of beer".
+
+O Zeus, who rules Olympus, defender of cities, defender of homes, defender of the travelers and of those far from home, I beg you to establish a loop counting from 99 to 1 called beerLoop.
+
+Mindful Mnemosyne, by whom the soul with intellect is joined, I ask you to create a check called check99 with parameter x inside beerLoop and set its condition to x less than 99.
+
+Demeter, goddess who grants the gift of abundance, gracious goddess who grants to mankind the gift of grain, who taught men the art of the seed, please print Beerloop counter, BeerString, comma, " on the wall", Beerloop counter, and Beerstring, period, inside of BeerloopCheck.
+
+Aphrodite, incomparable goddess, born of seaform, borne on the ocean's waves, please, inside of BeerloopCheck, print a blank line.
+
+O Demeter, great lady of the land, gracious goddess who grants to mankind the gift of grain, inside of Beerloop, print Beerloop counter, BeerString, "on the wall,", Beerloop counter, BeerString, newline, "Take one down, pass it around,"
+
+Aphrodite, blessed one, who holds us close, who sees the truth within us, print NoMoreBeerString, "!", newline, NoMoreBeerString, ", ", NoMoreBeerString, newline, "Go to the store and buy some more, 99 bottles of beer on the wall."
+
+O great Gods, with all the splendor of Olympus, sing the song of 99 bottles of beer on the wall!
