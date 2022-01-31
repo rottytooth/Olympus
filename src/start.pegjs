@@ -21,12 +21,13 @@
 
     const score_praise = (epithets, minscore, god) => {
         var sum = epithets.reduce(function (previousValue, currentValue) {
-            return previousValue + Math.floor(currentValue / PHRASE_LENGTH);
-        });
+            return previousValue + Math.floor(currentValue.length / PHRASE_LENGTH) + 1;
+        }, 0);
         if (sum < minscore) {
             error(`Not enough adoration for ${god}`)
         }
-    }
+        return sum;
+	}
 }
 
 Start = _? Opening prog:Invocation+ _? Closing?

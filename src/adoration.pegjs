@@ -20,7 +20,7 @@ Mnemosyne = g:("Mindful" _)? "Mnemosyne," _ f:("mistress of memory" "," _ / "hol
         god: "Mnemosyne",
         praise_factor: 0,
         epithets: f,
-        adoration: score
+        score: score
     };
 } // initializing memory, declaring variables
 
@@ -34,7 +34,7 @@ Zeus = ("Lord" _)? "Zeus," _ f:("who rules Olympus" "," _ / "defender of cities"
         god: "Zeus",
         praise_factor: 3,
         epithets: f,
-        adoration: score
+        score: score
     };
 } // Anything structural
 
@@ -52,7 +52,7 @@ Athena = g:("Pallas" _ / "Clear-minded" _ / "Great and good" _)? "Athena" ","? _
         god: "Athena",
         praise_factor: 1,
         epithets: f,
-        adoration: score
+        score: score
     };
 } // Anything structural
     
@@ -66,7 +66,7 @@ Hades = ("Lord" _)? "Hades," _ f:("magnanimous and just" "," _ /"thy realm an ea
         god: "Hades",
         praise_factor: 2,
         epithets: f,
-        adoration: score
+        score: score
     };
 } // destroying an object, setting anything to zero or null, ending a loop
 
@@ -80,7 +80,7 @@ Artemis = "Artemis," _ f:("sister of the far-shooter" "," _ / "virgin who deligh
         god: "Artemis",
         praise_factor: 2,
         epithets: f,
-        adoration: score        
+        score: score        
     };
 } 
 
@@ -94,7 +94,7 @@ Ariadne = "Ariadne," _ f:("pure one" "," _ / "ancient one" "," _ /"mistress of t
         god: "Ariadne",
         praise_factor: 2,
         epithets: f,
-        adoration: score
+        score: score
     };
 } // anything that produces multiplicities of paths or breaks linearity
 
@@ -109,7 +109,7 @@ Demeter = n:("Demeter"/"Ceres") "," _ f:("goddess who grants the gift of abundan
         name: n,
         praise_factor: 2,
         epithets: f,
-        adoration: score
+        score: score
     };
 } // Printing or taking input
 
@@ -123,7 +123,7 @@ Aphrodite = "Aphrodite," _ f:("glory of Olympus" "," _ / "golden one" "," _ / "g
         god: "Aphrodite",
         praise_factor: 3,
         epithets: f,
-        adoration: score
+        score: score
     };
 }
 
@@ -138,7 +138,7 @@ Hermes = (("Great"/"Cyllenian") _)? n:"Hermes" "," _ f:("lord of Cyllene and Arc
         praise_factor: 1,
         name: n,
         epithets: f,
-        adoration: score
+        score: score
     };
 }
 
@@ -153,7 +153,7 @@ Ares = ("Lord" _)? n:("Ares"/"Mars") "," _ f:("courageous one" "," _ / "well-hon
         praise_factor: 2,
         name: n,
         epithets: f,
-        adoration: score
+        score: score
     };
 }
 

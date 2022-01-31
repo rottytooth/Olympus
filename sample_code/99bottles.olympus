@@ -1,0 +1,29 @@
+Come, happy, deathless Gods! Hearken to my prayer!
+
+Great and good Athena, purger of evils, who hears all words spoken in market and assembly, please make a function called printBot for parameter n that prints n, beerStr, and " on the wall!\n".
+
+Ariadne, pure one, ancient one, mistress of the labyrinth, wise and cunning one whose agile mind finds purchase on the frailest of notions, I beg you to create a check called check99 with parameter x to call printBot with parameter x.
+
+O Mnemosyne, holder of tales old and new, mistress of memory, if in the past you have looked favorably upon me, I ask that you create a vessel called beerString and place within it the missive "bottles of beer".
+
+Ariadne, ancient one, pure one, mistress of the labyrinth, please give check99 a condition for parameter n where n is less than 99.
+
+Mindful Mnemosyne, by whom the soul with intellect is joined, I ask you to create a vessel called noMoreBeerString and inscribe it with "no more bottles of beer".
+
+Lord Zeus, master of storms, father of the gods, defender of cities, defender of homes, defender of the travelers and of those far from home, I beg you to create a function called printBeerInsideLoop for parameter n that prints n, beerString, " on the wall", n, beerString, ".\nTake one down, pass it around, ".
+
+Clear-minded Athena, of the horses, who hears all words spoken in market and assembly, I implore you to make a function printBot for parameter n that prints n, beerStr, and " on the wall!\n".
+
+Cyllenian Hermes, son of Zeus, messenger of Olympus, lord of Cyllene and Arcadia rich in flocks, I ask you to make a function called printBeerOutsideLoop that prints "No more bottles of beer on the wall!\nNo more bottles of beer on the wall, no more bottles of beer.\nGo to the store and buy some more, 99 bottles of beer on the wall.".
+
+Ariadne, pure one, ancient one, mistress of the labyrinth, wise and cunning one whose agile mind finds purchase on the frailest of notions, please make function beerLoop for parameter x that calls check99 with parameter x.
+
+O Hermes, the Slayer of Argus, giver of grace, giver of good things, I implore you to add to beerLoop a call to printBeerInsideLoop with parameter x.
+
+Artemis, fostered with Apollo, virgin who delights in arrows, far-shooting goddess, who swiftly drives her all-golden chariot through Smyrna to vine-clad Claros, I ask that you establish a loop counting from 99 to 1 that call beerLoop.
+
+Hermes, the Slayer of Argus, giver of grace, giver of good things, please create a call to printBeerOutsideLoop.
+
+Hades, thy realm an earthy tomb, remote from mortals in their fleshy bust, thy throne is fixed in the dismal plains, I implore you to collect all variables that remain, stranded in the functions of Chion or in the main sequence to live on in your netherworld.
+
+O great Gods, with all the splendor of Olympus, sing the song of 99 bottles of beer on the wall! 
