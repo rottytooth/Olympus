@@ -8,9 +8,9 @@
     const GOD2REQUEST = {
         'Mnemosyne' : ['assign','var'],
     	'Athena' : ['function'],
-        'Zeus' : ['function'],
+        'Zeus' : ['function','call'],
         'Hades': ['destroy'],
-        'Artemis': ['for'],
+        'Artemis': ['for','while'],
         'Ariadne' : ['check','assign_condition','call'],
         'Hermes': ['print','call','input'],
         'Aphrodite': ['eval'],
@@ -82,7 +82,7 @@ Supplication = "please" ","? / ("if in the past you have looked favorably upon m
     if (DEBUG) console.log("in Supplication");
 }
 
-Pause = "."/";"/"?"/"!"
+Pause = "."/"?"+/"!"+/"?!"
 {
     if (DEBUG) console.log("in Pause");
 }
@@ -95,7 +95,7 @@ Adoration = ("O" _)? g:(Mnemosyne / Zeus / Athena / Hades / Artemis / Ariadne / 
     return g;
 }
 
-Mnemosyne = g:("Mindful" _)? "Mnemosyne," _ f:("mistress of memory" "," _ / "holder of tales old and new" "," _ / "by whom the soul with intellect is joined" "," _)+
+Mnemosyne = g:("Mindful" _)? "Mnemosyne," _ f:("mistress of memory" "," _ / "holder of tales old and new" "," _ / "by whom the soul with intellect is joined" "," _ / "daughter of " ("Uranus"/"Ouranos"/"Gaia"/"Earth") "," _ / "of the beautiful hair" "," _ / "with eyes ever wakeful" "," _ / "who discovered the power of reason" "," _)+
 {
 	f = f.map(v => v[0]); // remove "," _
 
@@ -113,7 +113,7 @@ Mnemosyne = g:("Mindful" _)? "Mnemosyne," _ f:("mistress of memory" "," _ / "hol
     };
 } // initializing memory, declaring variables
 
-Zeus = ("Lord" _)? "Zeus," _ f:("who rules Olympus" "," _ / "defender of cities" "," _ /"defender of homes" "," _ / "defender of the travelers and of those far from home" "," _ / "master of storms" "," _ / "father of the gods" "," _ / "of the lightning strike" "," _ / "of the sturdy oak" "," _)+
+Zeus = ("Lord" _)? "Zeus," _ f:("who rules Olympus" "," _ / "defender of cities" "," _ /"defender of homes" "," _ / "defender of the travelers and of those far from home" "," _ / "master of storms" "," _ / "father of the gods" "," _ / "of the lightning strike" "," _ / "of the sturdy oak" "," _ / "cloud-gathering" "," _ )+
 {
 	f = f.map(v => v[0]); // remove "," _
 
@@ -127,7 +127,7 @@ Zeus = ("Lord" _)? "Zeus," _ f:("who rules Olympus" "," _ / "defender of cities"
     };
 } // Anything structural
 
-Athena = g:("Pallas" _ / "Clear-minded" _ / "Great and good" _)? "Athena" ","? _ f:("lady of Athens" "," _ / "patron of heroes" "," _ / "of the horses" "," _ / "bestower of wisdom" "," _ / "granter of reason" "," _ / "who hears all words spoken in market and assembly" "," _ / "all in brilliant armor" "," _ / "purger of evils" "," _)+
+Athena = g:("Pallas" _ / "Clear-minded" _ / "Great and good" _)? "Athena" ","? _ f:("lady of Athens" "," _ / "patron of heroes" "," _ / "of the horses" "," _ / "bestower of wisdom" "," _ / "granter of reason" "," _ / "who hears all words spoken in market and assembly" "," _ / "all in brilliant armor" "," _ / "purger of evils" "," _ / "who saves the people as they go out to war and come back" "," _)+
 {
 	f = f.map(v => v[0]); // remove "," _
 
@@ -187,7 +187,7 @@ Ariadne = "Ariadne," _ f:("pure one" "," _ / "ancient one" "," _ /"mistress of t
     };
 } // anything that produces multiplicities of paths or breaks linearity
 
-Demeter = n:("Demeter"/"Ceres") "," _ f:("goddess who grants the gift of abundance" "," _ / "lady of the golden sword and glorious fruits" "," _ / "all-bounteous" "," _ / "friend of the farmer" "," _ / "golden-haired" "," _ / "great lady of the land" "," _ / "goddess of seed" "," _ / "nurse of all mortals" "," _ / "bearing light" "," _)+
+Demeter = n:("Demeter"/"Ceres") "," _ f:("goddess who grants the gift of abundance" "," _ / "lady of the golden sword and glorious fruits" "," _ / "all-bounteous" "," _ / "friend of the farmer" "," _ / "golden-haired" "," _ / "great lady of the land" "," _ / "goddess of seed" "," _ / "nurse of all mortals" "," _ / "bearing light" "," _ / "rich-haired" _ / "lady of the golden sword and glorious fruits" "," _ / "marvellous, radiant flower" "," _ )+
 {
 	f = f.map(v => v[0]); // remove "," _
 
@@ -202,7 +202,7 @@ Demeter = n:("Demeter"/"Ceres") "," _ f:("goddess who grants the gift of abundan
     };
 } // Printing or taking input
 
-Aphrodite = "Aphrodite," _ f:("glory of Olympus" "," _ / "golden one" "," _ / "goddess of marriage" "," _ / "born" "e"? _ "of seaform" "," _ / "born" "e"? _ "on the ocean's waves" "," _ / "your beauty by god or mortal unseen" "," _ / "your power over heart and mind unknown" "," _ / "who sees the truth within us" "," _ / "source of pursuation" "," _ / "blessed one" "," _ / "who holds us close" "," _ / "freshest of Olympus's flowers" "," _)+
+Aphrodite = "Aphrodite," _ f:("glory of Olympus" "," _ / "golden one" "," _ / "goddess of marriage" "," _ / "born" "e"? _ "of seaform" "," _ / "born" "e"? _ "on the ocean's waves" "," _ / "your beauty by god or mortal unseen" "," _ / "your power over heart and mind unknown" "," _ / "who sees the truth within us" "," _ / "source of pursuation" "," _ / "blessed one" "," _ / "who holds us close" "," _ / "freshest of Olympus's flowers" "," _ / "queen of well-built Salamis and sea-girt Cyprus" "," _ / "unbending of heart" "," / "savio" "u"? "r of cities" "," _)+
 {
 	f = f.map(v => v[0]); // remove "," _
 
@@ -305,37 +305,33 @@ Declare = Establish _ k:(Function / ForLoop / Var / If) (_ (Name/Named))? _ id:I
 // declare within a function (same as append body)
 DeclareInScope = wh1:Where Establish _ k:(ForLoop / Var / If / CallDirectObject) _? (Name/Named) _ id:Identifier params:GetParams? funcbody:FunctionBody? con:Assign?
 {
-    if (DEBUG) console.log("in DeclareInScope First")
 	return {
-       ...k,
-       id: id,
-       params: params, 
-       loc: wh1,
-       funcbody: funcbody
+        ...k,
+        id: id,
+        params: params, 
+        loc: wh1,
+        funcbody: funcbody,
+        debug: "DeclareInScope First"
     }
 } / Grant _ (("the" _)? "function" _ )? fun:Identifier _ k:(ForLoop / Var) _? (Name/Named) _ id:Identifier params:GetParams? funcbody:FunctionBody? con:Assign?
 {
-    if (DEBUG) console.log("in DeclareInScope Second");
 	return {
-       ...k,
-       id: id,
-       params: params, 
-       loc: fun,
-       funcbody: funcbody
+        ...k,
+        id: id,
+        params: params, 
+        loc: fun,
+        funcbody: funcbody,
+        debug: "DeclareInScope Second"
     }
-} / Grant _ (("the" _)? "function" _ )? fun:Identifier _ k:(If / CallDirectObject) _? id:((Name/Named) _ Identifier)? params:GetParams? funcbody:FunctionBody? con:Assign?
+} / Grant _ (("the" _)? "function" _ )? fun:Identifier _ k:(If / CallDirectObject) _? funcbody:FunctionBody? con:Assign?
 {
-    if (DEBUG) console.log("in DeclareInScope Second");
+    if (DEBUG) console.log("in DeclareInScope Third");
     
-    if (id && id.length > 0) {
-    	id = id[2];
-    }
 	return {
-       ...k,
-       id: id,
-       params: params, 
-       loc: fun,
-       funcbody: funcbody
+        ...k,
+        loc: fun,
+        funcbody: funcbody,
+        debug: "DeclareInScope Third"
     }
 }
 
@@ -489,12 +485,13 @@ If = "a" _ "check"
 
 // FIXME: Shouold this be combined with Call / Partial Call above?
 // NOTE: A Partial Call is a Call with its own name (?)
-CallDirectObject = "a" _ "call" _ "to" _ ("function" _)? id:Identifier prams:GetParams?
+CallDirectObject = "a" _ "call" _ "to" _ ("function" _)? id:Identifier params:GetParams?
 {
 	if (DEBUG) console.log("in CallDirectObject");
     return {
-    	type: "call"
-        
+    	type: "call",
+        id: id,
+        params: params
     }
 }
 
@@ -741,7 +738,7 @@ CharLiteral = _? "'" val:[^'] "'" _?
 	};
 }
 
-Identifier = d:[0-9a-zA-Z_]+ { return d.join(""); }
+Identifier = d:[a-zA-Z_]+ { return d.join(""); }
     
 // end of LITERALS
 

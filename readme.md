@@ -1,10 +1,12 @@
 # Olympus
 
-A programming language whose virtual machine is Olympos. Instead of registers, we have a set of gods, each of which will do specific things for us if we ask them in the right way. Here is a Hello, World program:
+A programming language whose virtual machine is Olympus. Instead of registers, we have a set of gods, each of which will do specific things for us if we ask them in the right way. Here is a Hello, World program:
 
 ## CONCEPT
 
-When we bark orders at digital assistants, it does not bring out the best in us. We become masters with a somewhat humanized, subservient, usually female service worker we can yell petty commands at it. Were we to build code by commanding a digital assistant, it would make things even worse, given the "complete and unambiguous explanation" required in code; the micro-managing necessary enhances the sense of condescension.
+We command machines as if they were are servants, and yet they often do not do what we want. Olympus is a new programming language which better reflects the actual power dynamic of programmer and machine.
+
+When we bark orders at digital assistants (our Alexas and Siris), it does not bring out the best in us. We become masters to insolent machines that continually misunderstand us; they are personified, usually as female service workers, which makes our position as masters all the more uncomfortable. Were we to write code in this way, it would make things even worse, given the "complete and unambiguous explanation" required in code; the micro-managing necessary enhances the sense of condescension.
 
 But what if we reversed that power dynamic? When we pray, we also make requests-- often equally petty -- only we do so with great solemnity and respect. The language Hellenic adopts this approach. To avoid any sense of micromanaging the gods, we make requests in small pieces, each accompnied with appropriate praise.
 
@@ -27,7 +29,7 @@ A check is a branching instruction. Its condition can be described separately an
 ## GODS
 
 * *Mnemosyne* is the mistress of memory. Anything dealing with assignment or declaring new variables goes to her.
-* *Hades* collects the souls of the dead, and of variables that have lost their usefulness. All variables in Olympus that have mutability (the non-eternals) must be freed at the end, even primitives. It is customary (and a good safeguard) to call on Hades to free all variables at the end of a program.
+* *Hades* collects the souls of abandoned variables. All variables in Olympus that have mutability (the non-eternals) and primitives must be freed at the end. It is customary (and a good safeguard) to call on Hades to free all variables at the end of a program.
 * *Zeus* and *Athena* are the strategists. They deal with the structure of code. Since they are called on quite a lot, the programmer has two to call on. Athena needs less praise than Zeus, she is less egotistical. They are equally powerful.
 * *Artemis* and *Demeter*, who rule over the cycles of nature, are the masters of looping structures and repetition. Loops—for or while—are theirs. Functional calls that are loop over a list (e.g. map and reduce) also go to them.
 * *Ariadne*, mistress of the labyrinth and the serpent, deals with branching structures. That is “if,” “case,” “break,” and the calling of a function.
@@ -58,4 +60,4 @@ It is implemented using PEGJS and JavaScript. Some syntactic rules (such as exce
 
 * https://www.theoi.com/Text/HomericHymns1.html
 
-* Half-remembered episodes of Xena: Warrior Princess
+* Half-remembered episodes of *Xena: Warrior Princess*

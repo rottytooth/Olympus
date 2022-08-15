@@ -55,37 +55,33 @@ Declare = Establish _ k:(Function / ForLoop / Var / If) (_ (Name/Named))? _ id:I
 // declare within a function (same as append body)
 DeclareInScope = wh1:Where Establish _ k:(ForLoop / Var / If / CallDirectObject) _? (Name/Named) _ id:Identifier params:GetParams? funcbody:FunctionBody? con:Assign?
 {
-    if (DEBUG) console.log("in DeclareInScope First")
 	return {
-       ...k,
-       id: id,
-       params: params, 
-       loc: wh1,
-       funcbody: funcbody
+        ...k,
+        id: id,
+        params: params, 
+        loc: wh1,
+        funcbody: funcbody,
+        debug: "DeclareInScope First"
     }
 } / Grant _ (("the" _)? "function" _ )? fun:Identifier _ k:(ForLoop / Var) _? (Name/Named) _ id:Identifier params:GetParams? funcbody:FunctionBody? con:Assign?
 {
-    if (DEBUG) console.log("in DeclareInScope Second");
 	return {
-       ...k,
-       id: id,
-       params: params, 
-       loc: fun,
-       funcbody: funcbody
+        ...k,
+        id: id,
+        params: params, 
+        loc: fun,
+        funcbody: funcbody,
+        debug: "DeclareInScope Second"
     }
-} / Grant _ (("the" _)? "function" _ )? fun:Identifier _ k:(If / CallDirectObject) _? id:((Name/Named) _ Identifier)? params:GetParams? funcbody:FunctionBody? con:Assign?
+} / Grant _ (("the" _)? "function" _ )? fun:Identifier _ k:(If / CallDirectObject) _? funcbody:FunctionBody? con:Assign?
 {
-    if (DEBUG) console.log("in DeclareInScope Second");
+    if (DEBUG) console.log("in DeclareInScope Third");
     
-    if (id && id.length > 0) {
-    	id = id[2];
-    }
 	return {
-       ...k,
-       id: id,
-       params: params, 
-       loc: fun,
-       funcbody: funcbody
+        ...k,
+        loc: fun,
+        funcbody: funcbody,
+        debug: "DeclareInScope Third"
     }
 }
 
@@ -239,12 +235,13 @@ If = "a" _ "check"
 
 // FIXME: Shouold this be combined with Call / Partial Call above?
 // NOTE: A Partial Call is a Call with its own name (?)
-CallDirectObject = "a" _ "call" _ "to" _ ("function" _)? id:Identifier prams:GetParams?
+CallDirectObject = "a" _ "call" _ "to" _ ("function" _)? id:Identifier params:GetParams?
 {
 	if (DEBUG) console.log("in CallDirectObject");
     return {
-    	type: "call"
-        
+    	type: "call",
+        id: id,
+        params: params
     }
 }
 

@@ -120,6 +120,6 @@ CharLiteral = _? "'" val:[^'] "'" _?
 	};
 }
 
-Identifier = d:[0-9a-zA-Z_]+ { return d.join(""); }
+Identifier = d:[a-zA-Z_]+ { return d.join(""); }
     
 // end of LITERALS

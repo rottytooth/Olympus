@@ -8,9 +8,9 @@
     const GOD2REQUEST = {
         'Mnemosyne' : ['assign','var'],
     	'Athena' : ['function'],
-        'Zeus' : ['function'],
+        'Zeus' : ['function','call'],
         'Hades': ['destroy'],
-        'Artemis': ['for'],
+        'Artemis': ['for','while'],
         'Ariadne' : ['check','assign_condition','call'],
         'Hermes': ['print','call','input'],
         'Aphrodite': ['eval'],
@@ -82,7 +82,7 @@ Supplication = "please" ","? / ("if in the past you have looked favorably upon m
     if (DEBUG) console.log("in Supplication");
 }
 
-Pause = "."/";"/"?"/"!"
+Pause = "."/"?"+/"!"+/"?!"
 {
     if (DEBUG) console.log("in Pause");
 }

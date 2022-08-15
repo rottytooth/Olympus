@@ -1,435 +1,392 @@
 {
-    "type": "Program",
-    "invocations": [
-       {
-          "type": "invocation",
-          "adoration": {
-             "god": "Athena",
-             "praise_factor": 1,
-             "epithets": [
-                "Great and good",
-                "purger of evils",
-                "who hears all words spoken in market and assembly"
-             ],
-             "score": 4
-          },
-          "requests": [
-             {
-                "type": "function",
-                "id": "printBot",
-                "params": [
-                   {
-                      "type": "param_name",
-                      "name": "n"
-                   }
-                ]
-             },
-             {
-                "type": "print",
-                "exp": [
-                   {
-                      "type": "VariableName",
-                      "name": "n"
-                   },
-                   {
-                      "type": "VariableName",
-                      "name": "beerStr"
-                   },
-                   {
-                      "type": "StringLiteral",
-                      "value": " on the wall!\n"
-                   }
-                ],
-                "loc": null
-             }
-          ]
-       },
-       {
-          "type": "invocation",
-          "adoration": {
-             "god": "Ariadne",
-             "praise_factor": 2,
-             "epithets": [
-                "pure one",
-                "ancient one",
-                "mistress of the labyrinth",
-                "wise and cunning one whose agile mind finds purchase on the frailest of notions"
-             ],
-             "score": 8
-          },
-          "requests": [
-             {
-                "type": "check",
-                "id": "check99",
-                "params": [
-                   {
-                      "type": "param_name",
-                      "name": "x"
-                   }
-                ]
-             },
-             {
-                "type": "call",
-                "id": "printBot",
-                "params": [
-                   {
-                      "type": "param_name",
-                      "name": "x"
-                   }
-                ],
-                "loc": null
-             }
-          ]
-       },
-       {
-          "type": "invocation",
-          "adoration": {
-             "god": "Mnemosyne",
-             "praise_factor": 0,
-             "epithets": [
-                "holder of tales old and new",
-                "mistress of memory"
-             ],
-             "score": 3
-          },
-          "requests": [
-             {
-                "type": "var",
-                "id": "beerString",
-                "params": null
-             },
-             {
-                "type": "assign",
-                "id": "<prev id>",
-                "exp": {
-                   "type": "StringLiteral",
-                   "value": "bottles of beer"
-                }
-             }
-          ]
-       },
-       {
-          "type": "invocation",
-          "adoration": {
-             "god": "Ariadne",
-             "praise_factor": 2,
-             "epithets": [
-                "ancient one",
-                "pure one",
-                "mistress of the labyrinth"
-             ],
-             "score": 4
-          },
-          "requests": [
-             {
-                "type": "assign_condition",
-                "exp": {
-                   "type": "Comparison",
-                   "operator": "<",
-                   "left": {
-                      "type": "VariableName",
-                      "name": "n"
-                   },
-                   "right": {
-                      "type": "VariableName",
-                      "name": "99"
-                   }
-                },
-                "param": "n",
-                "id": "check99"
-             }
-          ]
-       },
-       {
-          "type": "invocation",
-          "adoration": {
-             "god": "Mnemosyne",
-             "praise_factor": 0,
-             "epithets": [
-                "Mindful",
-                "by whom the soul with intellect is joined"
-             ],
-             "score": 3
-          },
-          "requests": [
-             {
-                "type": "var",
-                "id": "noMoreBeerString",
-                "params": null
-             },
-             {
-                "type": "assign",
-                "id": "<prev id>",
-                "exp": {
-                   "type": "StringLiteral",
-                   "value": "no more bottles of beer"
-                }
-             }
-          ]
-       },
-       {
-          "type": "invocation",
-          "adoration": {
-             "god": "Zeus",
-             "praise_factor": 3,
-             "epithets": [
-                "master of storms",
-                "father of the gods",
-                "defender of cities",
-                "defender of homes",
-                "defender of the travelers and of those far from home"
-             ],
-             "score": 7
-          },
-          "requests": [
-             {
-                "type": "function",
-                "id": "printBeerInsideLoop",
-                "params": [
-                   {
-                      "type": "param_name",
-                      "name": "n"
-                   }
-                ]
-             },
-             {
-                "type": "print",
-                "exp": [
-                   {
-                      "type": "VariableName",
-                      "name": "n"
-                   },
-                   {
-                      "type": "VariableName",
-                      "name": "beerString"
-                   },
-                   {
-                      "type": "StringLiteral",
-                      "value": " on the wall"
-                   },
-                   {
-                      "type": "VariableName",
-                      "name": "n"
-                   },
-                   {
-                      "type": "VariableName",
-                      "name": "beerString"
-                   },
-                   {
-                      "type": "StringLiteral",
-                      "value": ".\nTake one down, pass it around, "
-                   }
-                ],
-                "loc": null
-             }
-          ]
-       },
-       {
-          "type": "invocation",
-          "adoration": {
-             "god": "Athena",
-             "praise_factor": 1,
-             "epithets": [
-                "Clear-minded",
-                "of the horses",
-                "who hears all words spoken in market and assembly"
-             ],
-             "score": 4
-          },
-          "requests": [
-             {
-                "type": "function",
-                "id": "printBot",
-                "params": [
-                   {
-                      "type": "param_name",
-                      "name": "n"
-                   }
-                ]
-             },
-             {
-                "type": "print",
-                "exp": [
-                   {
-                      "type": "VariableName",
-                      "name": "n"
-                   },
-                   {
-                      "type": "VariableName",
-                      "name": "beerStr"
-                   },
-                   {
-                      "type": "StringLiteral",
-                      "value": " on the wall!\n"
-                   }
-                ],
-                "loc": null
-             }
-          ]
-       },
-       {
-          "type": "invocation",
-          "adoration": {
-             "god": "Hermes",
-             "praise_factor": 1,
-             "name": "Hermes",
-             "epithets": [
-                "son of Zeus",
-                "messenger of Olympus",
-                "lord of Cyllene and Arcadia rich in flocks"
-             ],
-             "score": 4
-          },
-          "requests": [
-             {
-                "type": "function",
-                "id": "printBeerOutsideLoop",
-                "params": null
-             },
-             {
-                "type": "print",
-                "exp": {
-                   "type": "StringLiteral",
-                   "value": "No more bottles of beer on the wall!\nNo more bottles of beer on the wall, no more bottles of beer.\nGo to the store and buy some more, 99 bottles of beer on the wall."
-                },
-                "loc": null
-             }
-          ]
-       },
-       {
-          "type": "invocation",
-          "adoration": {
-             "god": "Ariadne",
-             "praise_factor": 2,
-             "epithets": [
-                "pure one",
-                "ancient one",
-                "mistress of the labyrinth",
-                "wise and cunning one whose agile mind finds purchase on the frailest of notions"
-             ],
-             "score": 8
-          },
-          "requests": [
-             {
-                "type": "function",
-                "id": "beerLoop",
-                "params": [
-                   {
-                      "type": "param_name",
-                      "name": "x"
-                   }
-                ]
-             },
-             {
-                "type": "call",
-                "id": "check99",
-                "params": [
-                   {
-                      "type": "param_name",
-                      "name": "x"
-                   }
-                ]
-             }
-          ]
-       },
-       {
-          "type": "invocation",
-          "adoration": {
-             "god": "Hermes",
-             "praise_factor": 1,
-             "name": "Hermes",
-             "epithets": [
-                "the Slayer of Argus",
-                "giver of grace",
-                "giver of good things"
-             ],
-             "score": 3
-          },
-          "requests": [
-             {
-                "type": "call",
-                "id": null,
-                "params": null,
-                "loc": "beerLoop",
-                "funcbody": null
-             }
-          ]
-       },
-       {
-          "type": "invocation",
-          "adoration": {
-             "god": "Artemis",
-             "praise_factor": 2,
-             "epithets": [
-                "fostered with Apollo",
-                "virgin who delights in arrows",
-                "far-shooting goddess",
-                "who swiftly drives her all-golden chariot through Smyrna to vine-clad Claros"
-             ],
-             "score": 8
-          },
-          "requests": [
-             {
-                "type": "for",
-                "start": {
-                   "type": "VariableName",
-                   "name": "99"
-                },
-                "end": {
-                   "type": "VariableName",
-                   "name": "1"
-                },
-                "id": "that",
-                "params": null
-             },
-             {
-                "type": "call",
-                "id": "beerLoop",
-                "params": null,
-                "loc": null
-             }
-          ]
-       },
-       {
-          "type": "invocation",
-          "adoration": {
-             "god": "Hermes",
-             "praise_factor": 1,
-             "name": "Hermes",
-             "epithets": [
-                "the Slayer of Argus",
-                "giver of grace",
-                "giver of good things"
-             ],
-             "score": 3
-          },
-          "requests": [
-             {
-                "type": "call",
-                "id": "printBeerOutsideLoop",
-                "params": null,
-                "loc": null
-             }
-          ]
-       },
-       {
-          "type": "invocation",
-          "adoration": {
-             "god": "Hades",
-             "praise_factor": 2,
-             "epithets": [
-                "thy realm an earthy tomb",
-                "remote from mortals in their fleshy bust",
-                "thy throne is fixed in the dismal plains"
-             ],
-             "score": 5
-          },
-          "requests": [
-             {
-                "type": "destroy",
-                "exp": "all"
-             }
-          ]
-       }
-    ]
- }
+   "type": "Program",
+   "invocations": [
+      {
+         "type": "invocation",
+         "adoration": {
+            "god": "Athena",
+            "praise_factor": 1,
+            "epithets": [
+               "Great and good",
+               "purger of evils",
+               "who hears all words spoken in market and assembly"
+            ],
+            "score": 4
+         },
+         "requests": [
+            {
+               "type": "function",
+               "id": "printBot",
+               "params": [
+                  {
+                     "type": "param_name",
+                     "name": "n"
+                  }
+               ]
+            },
+            {
+               "type": "print",
+               "exp": [
+                  {
+                     "type": "VariableName",
+                     "name": "n"
+                  },
+                  {
+                     "type": "VariableName",
+                     "name": "beerStr"
+                  },
+                  {
+                     "type": "StringLiteral",
+                     "value": " on the wall!\n"
+                  }
+               ],
+               "loc": null
+            }
+         ]
+      },
+      {
+         "type": "invocation",
+         "adoration": {
+            "god": "Ariadne",
+            "praise_factor": 2,
+            "epithets": [
+               "pure one",
+               "ancient one",
+               "mistress of the labyrinth",
+               "wise and cunning one whose agile mind finds purchase on the frailest of notions"
+            ],
+            "score": 8
+         },
+         "requests": [
+            {
+               "type": "check",
+               "id": "check_ninetynine",
+               "params": [
+                  {
+                     "type": "param_name",
+                     "name": "x"
+                  }
+               ]
+            },
+            {
+               "type": "call",
+               "id": "printBot",
+               "params": [
+                  {
+                     "type": "param_name",
+                     "name": "x"
+                  }
+               ],
+               "loc": null
+            }
+         ]
+      },
+      {
+         "type": "invocation",
+         "adoration": {
+            "god": "Mnemosyne",
+            "praise_factor": 0,
+            "epithets": [
+               "holder of tales old and new",
+               "mistress of memory"
+            ],
+            "score": 3
+         },
+         "requests": [
+            {
+               "type": "var",
+               "id": "beerString",
+               "params": null
+            },
+            {
+               "type": "assign",
+               "id": "<prev id>",
+               "exp": {
+                  "type": "StringLiteral",
+                  "value": "bottles of beer"
+               }
+            }
+         ]
+      },
+      {
+         "type": "invocation",
+         "adoration": {
+            "god": "Ariadne",
+            "praise_factor": 2,
+            "epithets": [
+               "ancient one",
+               "pure one",
+               "mistress of the labyrinth"
+            ],
+            "score": 4
+         },
+         "requests": [
+            {
+               "type": "assign_condition",
+               "exp": {
+                  "type": "Comparison",
+                  "operator": "<",
+                  "left": {
+                     "type": "VariableName",
+                     "name": "n"
+                  },
+                  "right": {
+                     "type": "IntLiteral",
+                     "value": 99
+                  }
+               },
+               "param": "n",
+               "id": "check_ninetynine"
+            }
+         ]
+      },
+      {
+         "type": "invocation",
+         "adoration": {
+            "god": "Mnemosyne",
+            "praise_factor": 0,
+            "epithets": [
+               "Mindful",
+               "by whom the soul with intellect is joined"
+            ],
+            "score": 3
+         },
+         "requests": [
+            {
+               "type": "var",
+               "id": "noMoreBeerString",
+               "params": null
+            },
+            {
+               "type": "assign",
+               "id": "<prev id>",
+               "exp": {
+                  "type": "StringLiteral",
+                  "value": "no more bottles of beer"
+               }
+            }
+         ]
+      },
+      {
+         "type": "invocation",
+         "adoration": {
+            "god": "Zeus",
+            "praise_factor": 3,
+            "epithets": [
+               "master of storms",
+               "father of the gods",
+               "defender of cities",
+               "defender of homes",
+               "defender of the travelers and of those far from home"
+            ],
+            "score": 7
+         },
+         "requests": [
+            {
+               "type": "function",
+               "id": "printBeerInsideLoop",
+               "params": [
+                  {
+                     "type": "param_name",
+                     "name": "n"
+                  }
+               ]
+            },
+            {
+               "type": "print",
+               "exp": [
+                  {
+                     "type": "VariableName",
+                     "name": "n"
+                  },
+                  {
+                     "type": "VariableName",
+                     "name": "beerString"
+                  },
+                  {
+                     "type": "StringLiteral",
+                     "value": " on the wall"
+                  },
+                  {
+                     "type": "VariableName",
+                     "name": "n"
+                  },
+                  {
+                     "type": "VariableName",
+                     "name": "beerString"
+                  },
+                  {
+                     "type": "StringLiteral",
+                     "value": ".\nTake one down, pass it around, "
+                  }
+               ],
+               "loc": null
+            }
+         ]
+      },
+      {
+         "type": "invocation",
+         "adoration": {
+            "god": "Hermes",
+            "praise_factor": 1,
+            "name": "Hermes",
+            "epithets": [
+               "son of Zeus",
+               "messenger of Olympus",
+               "lord of Cyllene and Arcadia rich in flocks"
+            ],
+            "score": 4
+         },
+         "requests": [
+            {
+               "type": "function",
+               "id": "printBeerOutsideLoop",
+               "params": null
+            },
+            {
+               "type": "print",
+               "exp": {
+                  "type": "StringLiteral",
+                  "value": "No more bottles of beer on the wall!\nNo more bottles of beer on the wall, no more bottles of beer.\nGo to the store and buy some more, 99 bottles of beer on the wall."
+               },
+               "loc": null
+            }
+         ]
+      },
+      {
+         "type": "invocation",
+         "adoration": {
+            "god": "Ariadne",
+            "praise_factor": 2,
+            "epithets": [
+               "pure one",
+               "ancient one",
+               "mistress of the labyrinth",
+               "wise and cunning one whose agile mind finds purchase on the frailest of notions"
+            ],
+            "score": 8
+         },
+         "requests": [
+            {
+               "type": "function",
+               "id": "beerLoop",
+               "params": [
+                  {
+                     "type": "param_name",
+                     "name": "x"
+                  }
+               ]
+            },
+            {
+               "type": "call",
+               "id": "check_ninetynine",
+               "params": [
+                  {
+                     "type": "param_name",
+                     "name": "x"
+                  }
+               ]
+            }
+         ]
+      },
+      {
+         "type": "invocation",
+         "adoration": {
+            "god": "Hermes",
+            "praise_factor": 1,
+            "name": "Hermes",
+            "epithets": [
+               "the Slayer of Argus",
+               "giver of grace",
+               "giver of good things"
+            ],
+            "score": 3
+         },
+         "requests": [
+            {
+               "type": "call",
+               "id": "printBeerInsideLoop",
+               "params": [
+                  {
+                     "type": "param_name",
+                     "name": "x"
+                  }
+               ],
+               "loc": "beerLoop",
+               "funcbody": null,
+               "debug": "DeclareInScope Third"
+            }
+         ]
+      },
+      {
+         "type": "invocation",
+         "adoration": {
+            "god": "Artemis",
+            "praise_factor": 2,
+            "epithets": [
+               "fostered with Apollo",
+               "virgin who delights in arrows",
+               "far-shooting goddess",
+               "who swiftly drives her all-golden chariot through Smyrna to vine-clad Claros"
+            ],
+            "score": 8
+         },
+         "requests": [
+            {
+               "type": "for",
+               "start": {
+                  "type": "IntLiteral",
+                  "value": 99
+               },
+               "end": {
+                  "type": "IntLiteral",
+                  "value": 1
+               },
+               "id": "beerLoop",
+               "params": null
+            }
+         ]
+      },
+      {
+         "type": "invocation",
+         "adoration": {
+            "god": "Hermes",
+            "praise_factor": 1,
+            "name": "Hermes",
+            "epithets": [
+               "the Slayer of Argus",
+               "giver of grace",
+               "giver of good things"
+            ],
+            "score": 3
+         },
+         "requests": [
+            {
+               "type": "call",
+               "id": "printBeerOutsideLoop",
+               "params": null,
+               "loc": null
+            }
+         ]
+      },
+      {
+         "type": "invocation",
+         "adoration": {
+            "god": "Hades",
+            "praise_factor": 2,
+            "epithets": [
+               "thy realm an earthy tomb",
+               "remote from mortals in their fleshy bust",
+               "thy throne is fixed in the dismal plains"
+            ],
+            "score": 5
+         },
+         "requests": [
+            {
+               "type": "destroy",
+               "exp": "all"
+            }
+         ]
+      }
+   ]
+}

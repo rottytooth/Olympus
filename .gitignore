@@ -5,3 +5,5 @@ old
 old/*
 in_progress
 in_progress/*
+.vscode
+99bottles_model.js
