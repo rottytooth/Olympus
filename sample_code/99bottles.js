@@ -1,32 +1,27 @@
 const printBot = (n) => {
-	console.log(n);
-	console.log(beerStr);
-	console.log("%20on%20the%20wall%21%0A");
+console.write(n.asString() + beerStr.asString() + ` on the wall!\n`);
 }
-const check99 = (x) => {
-	printBot(x);
+const check_ninetynine = (x) => {
+printBot(x);
 }
 const printBeerInsideLoop = (n) => {
-	console.log(n);
-	console.log(beerString);
-	console.log("%20on%20the%20wall");
-	console.log(n);
-	console.log(beerString);
-	console.log(".%0ATake%20one%20down%2C%20pass%20it%20around%2C%20");
+console.write(n.asString() + beerString.asString() + ` on the wall`+ n.asString() + beerString.asString() + `.\nTake one down, pass it around, `);
 }
 const printBeerOutsideLoop = (n) => {
-	console.log("No%20more%20bottles%20of%20beer%20on%20the%20wall%21%0ANo%20more%20bottles%20of%20beer%20on%20the%20wall%2C%20no%20more%20bottles%20of%20beer.%0AGo%20to%20the%20store%20and%20buy%20some%20more%2C%2099%20bottles%20of%20beer%20on%20the%20wall.");
+console.write(`No more bottles of beer on the wall!\nNo more bottles of beer on the wall, no more bottles of beer.\nGo to the store and buy some more, 99 bottles of beer on the wall.`);
 }
 const beerLoop = (x) => {
-	check99(x);
+check_ninetynine(x);
 	printBeerInsideLoop(x);
 }
 let beerString;
-beerString = "bottles%20of%20beer";
-if ((n < 99)) {
-	check99(n);
+beerString = `bottles of beer`;
+if (n < 99) {
+	check_ninetynine(n);
 }
 let noMoreBeerString;
-noMoreBeerString = "no%20more%20bottles%20of%20beer";
-beerLoop();
+noMoreBeerString = `no more bottles of beer`;
+for (let beerLoop_counter = 99; beerLoop_counter > 1; beerLoop_counter--) {
+	beerLoop();
+}
 printBeerOutsideLoop();

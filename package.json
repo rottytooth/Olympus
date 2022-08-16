@@ -1,6 +1,6 @@
 {
   "devDependencies": {
-    "grunt": "^1.4.1",
+    "grunt": "^1.5.3",
     "grunt-contrib-concat": "^2.0.0"
   }
 }

@@ -1,16 +1,78 @@
+const exp = require('constants');
 const fs = require('fs');
 const { registerTask } = require('grunt');
-
+const { PassThrough } = require('stream');
 
 var function_list;
 
+INPUT_FILE = './sample_code/99bottles.json';
+
+PRINT_CMD = 'console.write'
+ESCAPED_NEWLINE = '\\n'
+
+const build_command = (r) => {
+    let statement = "";
+    
+    // only return a string if the command is added to the parent (usually the main flow)
+    switch(r.type) {
+        case "assign_condition":
+            statement += `if (${build_expression(r.exp)}) {\n`;
+            statement += `\t${r.id}(${r.param});\n`;
+            statement += "}\n";
+            break;
+        case "var":
+            statement += `let ${r.id};\n`;
+            prev_id = r.id;
+            break;
+        case "assign":
+            varname = r.id;
+            if (varname === '<prev id>')
+                varname = prev_id;
+                statement += `${varname} = ${build_expression(r.exp)};\n`;
+            break;
+        case "call":
+            paramlist = "";
+            if (r.params)
+                paramlist = r.params.map(e => e.name).join(",");
+            statement += `${r.id}(${paramlist});\n`;
+            break;
+        case "for":
+            let start = build_expression(r.start);
+            let end = build_expression(r.end);
+            let test = `${r.id}_counter ${r.start > end ? ">" : "<"} ${end}`;
+            let change = `${r.id}_counter++`;
+            if (start > end) { change = `${r.id}_counter--`};
+            statement += `for (let ${r.id}_counter = ${start}; ${test}; ${change}) {\n`;
+            statement += `\t${r.id}();\n`;
+            statement += "}\n";
+            break;
+        case "print":
+            let to_print = build_expression(r.exp, true)
+            if (to_print.constructor === Array) to_print = to_print.join("+ ");
+            statement += `${PRINT_CMD}(${to_print});\n`;
+            break;
+    }
+
+    if (!r.loc) // no location provided, return the statement
+        return statement;
+
+    // otherwise, a specific location was provided, add to that location
+    func_matches = function_list.filter(e => e.name == r.loc);
+    if (func_matches.length != 1)
+        throw(`Could not find function ${r.loc}`);
+    console.log(func_matches[0].func);
+    func_matches[0].func += "\t" + statement;
+    console.log(func_matches[0].func);
+}
+
 const build_function = (inv) => {
-    // first req should be the function declaration
-    // if (inv.requests[0].type !== 'function') {
-    //     throw("invalid build_function() call");
-    // }
     retstr = "";
     let funcname = inv.requests[0].id;
+
+    // // do we need to do anything different as a "check"?
+    // if (inv.requests[0].type == "check") {
+    //     // add actual check
+    // }
 
     if (inv.requests[0].params)
         paramstr = inv.requests[0].params.map(n => n.name).join(",");
@@ -21,64 +83,33 @@ const build_function = (inv) => {
         retstr += (build_command(inv.requests[i], true))
     }
 
-//    retstr += "}\n";
-
     return [funcname, retstr];
 }
 
-const build_expression = (exp) => {
+const build_expression = (exp, asString=false) => {
     if (exp.constructor !== Array) {
         switch(exp.type) {
             case "VariableName":
+                if (asString) return exp.name + ".asString() "
                 return exp.name;
+            case "IntLiteral":
+                if (asString) return exp.value + ".toString() "
+                return exp.value.toString();
             case "StringLiteral":
-                return '"' + escape(exp.value) + '"';
+                return '`' + exp.value.replace(/\n/g, ESCAPED_NEWLINE) + '`';
             case "Comparison":
-                return "(" + build_expression(exp.left) + " " + exp.operator + " " + build_expression(exp.right) + ")";
+                return build_expression(exp.left) + " " + exp.operator + " " + build_expression(exp.right);
         }
     }
     let retset = [];
     exp.forEach(e => {
-        retset.push(build_expression(e));
+        retset.push(build_expression(e, asString));
     });
     return retset;
 }
 
-const build_print = (req, tab) => {
-    let loc = req.loc; // in some cases, this gets written to a particular function
-    let retstr = "";
 
-    [].concat(req.exp).forEach(e => {
-        if (tab) retstr += "\t";
-        retstr += `console.log(${build_expression(e)});\n`
-    });
-    return retstr;
-}
-
-const build_function_call = (req, tab) => {
-    let loc = req.loc; // in some cases, this gets written to a particular function
-    let retstr = "";
-    if (tab) retstr += "\t";
-    
-    retstr += `${req.id}(`;
-    retstr += req.params.map(e => e.name).join(",");
-
-    retstr += ");\n"
-    return retstr;
-}
-
-const build_command = (req, tab) => {
-    let retstr = "";
-    switch(req.type) {
-        case "print":
-            return build_print(req, tab);
-        case "call":
-            return build_function_call(req, tab);
-    }
-    return retstr;
-}
-
-fs.readFile('./sample_code/99bottles.json', 'utf8', (err, data) => {
+fs.readFile(INPUT_FILE, 'utf8', (err, data) => {
 
     source = "";
     function_list = [];
@@ -91,62 +122,14 @@ fs.readFile('./sample_code/99bottles.json', 'utf8', (err, data) => {
         const c = JSON.parse(data);
 
         c.invocations.forEach(inv => {
-            // a set of connected requests
 
-            var prev_id = ""; // assigned when we know the name of the id created or assigned by name and afterword called it
-
-            // first requests
+            // top-level items; all following requests in this invocation will fall under this first request
             if (['function','check'].includes(inv.requests[0].type)) {
                 const [name, func] = build_function(inv);
                 function_list.push({'name':name,'func': func});
-            } else {
-                inv.requests.forEach(r => {
-
-                    statement = "";
-
-                    switch(r.type) {
-                        case "assign_condition":
-                            statement += `if (${build_expression(r.exp)}) {\n`;
-                            statement += `\t${r.id}(${r.param});\n`;
-                            statement += "}\n";
-                            break;
-                        case "var":
-                            statement += `let ${r.id};\n`;
-                            prev_id = r.id;
-                            break;
-                        case "assign":
-                            varname = r.id;
-                            if (varname === '<prev id>')
-                                varname = prev_id;
-                                statement += `${varname} = ${build_expression(r.exp)};\n`;
-                            break;
-                        case "call":
-                            paramlist = "";
-                            if (r.params)
-                                paramlist = r.params.map(e => e.name).join(",");
-                            statement += `${r.id}(${paramlist});\n`;
-                            break;
-                        case "for":
-                            break;
-                    }
-
-                    if (!r.loc) // no location provided, add to the main thread
-                        source += statement;
-                    else {
-                        func_matches = function_list.filter(e => e.name == r.loc);
-                        if (func_matches.length != 1)
-                            throw(`Could not find function ${r.loc}`);
-                        console.log(func_matches[0].func);
-                        func_matches[0].func += "\t" + statement;
-                        console.log(func_matches[0].func);
-                    }
-                });
-//                console.log(source);
+            } else { // the individual requests under an invocation
+                inv.requests.forEach(r => { cmd = build_command(r); if (typeof cmd !== "undefined") source += cmd; });
             }
-
-            // inv.requests.forEach(req => {
-            //     console.log(`${req.type}`)
-            // });
         });
 
         // add all the functions to the source code
@@ -155,7 +138,7 @@ fs.readFile('./sample_code/99bottles.json', 'utf8', (err, data) => {
 
         final_source += source; // now add all the "main flow"
 
-        console.log(source);
+        console.log(final_source);
         fs.writeFile("sample_code/99bottles.js", final_source, function (err) {
             if (err) return console.log(err);
           });
