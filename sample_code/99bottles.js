@@ -1,17 +1,17 @@
 const printBot = (n) => {
-console.write(n.asString() + beerStr.asString() + ` on the wall!\n`);
+	console.write(n.asString() + beerStr.asString() + ` on the wall!\n`);
 }
 const check_ninetynine = (x) => {
-printBot(x);
+	printBot(x);
 }
 const printBeerInsideLoop = (n) => {
-console.write(n.asString() + beerString.asString() + ` on the wall`+ n.asString() + beerString.asString() + `.\nTake one down, pass it around, `);
+	console.write(n.asString() + beerString.asString() + ` on the wall`+ n.asString() + beerString.asString() + `.\nTake one down, pass it around, `);
 }
 const printBeerOutsideLoop = (n) => {
-console.write(`No more bottles of beer on the wall!\nNo more bottles of beer on the wall, no more bottles of beer.\nGo to the store and buy some more, 99 bottles of beer on the wall.`);
+	console.write(`No more bottles of beer on the wall!\nNo more bottles of beer on the wall, no more bottles of beer.\nGo to the store and buy some more, 99 bottles of beer on the wall.`);
 }
 const beerLoop = (x) => {
-check_ninetynine(x);
+	check_ninetynine(x);
 	printBeerInsideLoop(x);
 }
 let beerString;

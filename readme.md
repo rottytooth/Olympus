@@ -2,7 +2,7 @@
 
 A programming language whose virtual machine is Olympus. Instead of registers, we have a set of gods, each of which will do specific things for us if we ask them in the right way. Here is a Hello, World program:
 
-## CONCEPT
+## Concept
 
 We command machines as if they were are servants, and yet they often do not do what we want. Olympus is a new programming language which better reflects the actual power dynamic of programmer and machine.
 
@@ -12,7 +12,7 @@ But what if we reversed that power dynamic? When we pray, we also make requests-
 
 Zeus and Athena are great strategists, useful for command flow; Mnemosyne is the mistress of memory; we leave garbage collection to Hades. Zeus needs more praise than Athena, who is less likely to hold a grudge. Piss off one of the gods by asking for the unreasonable, and they might not follow any of our commands from that point on.
 
-## BUILDING A PROGRAM
+## Building a program
 
 Each line of code is written as an invocation: a request to a god. The request is not to immediately carry out a task, but rather to create or append to a named function. The invocations need be ordered to not offend the gods, which may mean a single function might be described in non-contiguous invocations. It is best to keep functions very small; every loop or branching condition must be its own function so we can describe it in pieces.
 
@@ -26,7 +26,7 @@ Anything with a name and no description is assumed to be a procedure (a function
 
 A check is a branching instruction. Its condition can be described separately and is always another function with a true/false return type. 
 
-## GODS
+## Gods
 
 * *Mnemosyne* is the mistress of memory. Anything dealing with assignment or declaring new variables goes to her.
 * *Hades* collects the souls of abandoned variables. All variables in Olympus that have mutability (the non-eternals) and primitives must be freed at the end. It is customary (and a good safeguard) to call on Hades to free all variables at the end of a program.
@@ -36,23 +36,11 @@ A check is a branching instruction. Its condition can be described separately an
 * *Hermes*, the bringer of dreams, is responsible for all random numbers. He is also the messenger of the gods, and deals with input and output. Like Ariadne, Hermes can make calls to functions. 
 * *Aphrodite*, the goddess of desire and love, deals with currying. She helps a function spawn a child function (through currying). She also helps transform from the ideal plane into the physical world: any text can itself become code through her (eval).
 
+## Requirements
 
-## DESIGN CONSIDERATIONS
+Olympus expects the package <a href="https://github.com/rottytooth/esonatlangtools"> esonatlangtools</a> in the `packages/esonatlangtools` folder.
 
-Hellenic looks at thematic languages of the ArnoldC sort and asks if we can go one step further and take the logic of that text into the 
-
-Each piece is a lambda function. They need to be small. It is a LISP-like language, carried out in JS.
-
-Hellenic multicodes between prayers and commands. But it is not an arbitrary multicoding, such as Piet . Instead, it is more like a thematic language, with 
-
-
-
-INTERCAL gave us the compiler that responds to PLEASE. It was fickle, and would not carry out commands if we over-did it; the PLEASE had to be meaningful.
-
-It is implemented using PEGJS and JavaScript. Some syntactic rules (such as excessive repetition of epithets) are beyond what can be checked in PEGJS and so are caught at runtime.
-
-
-## SOURCES
+## Sources
 
 * https://www.hellenicgods.org/prayer-in-hellenismos
 

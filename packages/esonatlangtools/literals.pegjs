@@ -120,6 +120,4 @@ CharLiteral = _? "'" val:[^'] "'" _?
 	};
 }
 
-Identifier = d:[a-zA-Z_]+ { return d.join(""); }
-    
 // end of LITERALS

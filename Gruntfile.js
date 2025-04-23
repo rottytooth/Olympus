@@ -8,7 +8,7 @@ module.exports = function(grunt) {
               separator: '\n',
           },
           dist: {
-              src: ['src/start.pegjs','src/adoration.pegjs','src/requests.pegjs','src/expressions.pegjs','src/literals.pegjs','src/whitespace.pegjs'],
+              src: ['src/start.pegjs','src/adoration.pegjs','src/requests.pegjs','packages/esonatlangtools/expressions.pegjs','packages/esonatlangtools/literals.pegjs','packages/esonatlangtools/whitespace.pegjs'],
               dest: 'olympus.pegjs',
               nonull: true,
           },

@@ -86,3 +86,5 @@ Pause = "."/"?"+/"!"+/"?!"
 {
     if (DEBUG) console.log("in Pause");
 }
+
+Identifier = d:[a-zA-Z_]+ { return d.join(""); }
