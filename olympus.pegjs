@@ -87,6 +87,8 @@ Pause = "."/"?"+/"!"+/"?!"
     if (DEBUG) console.log("in Pause");
 }
 
+Identifier = d:[a-zA-Z_]+ { return d.join(""); }
+
 // ADORATION
 
 Adoration = ("O" _)? g:(Mnemosyne / Zeus / Athena / Hades / Artemis / Ariadne / Demeter / Aphrodite / Hermes / Ares) _?
@@ -738,8 +740,6 @@ CharLiteral = _? "'" val:[^'] "'" _?
 	};
 }
 
-Identifier = d:[a-zA-Z_]+ { return d.join(""); }
-    
 // end of LITERALS
 
 
